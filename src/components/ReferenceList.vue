@@ -14,22 +14,22 @@ const route = useRoute()
 </script>
 
 <template>
-  <ol class="reference-list">
-    <li
-    	v-for="({desc, link}, i) in references"
-    	:id="`references-${i + 1}`"
-    	:class="route.hash === `#references-${i + 1}` ? ['selected'] : []"
-    >
-      {{desc}}
-      <a v-if="link" :href="link">{{link}}</a>
-    </li>
-  </ol>
+	<ol class="reference-list">
+		<li
+			v-for="({desc, link}, i) in references"
+			:id="`references-${i + 1}`"
+			:class="route.hash === `#references-${i + 1}` ? ['selected'] : []"
+		>
+			{{desc}}
+			<a v-if="link" :href="link">{{link}}</a>
+		</li>
+	</ol>
 </template>
 
 <style scoped>
 .reference-list li {
-  padding-left: 2em;
-  text-indent: -2em;
+	padding-left: 2em;
+	text-indent: -2em;
 }
 
 .reference-list li.selected {
