@@ -1,4 +1,24 @@
 <script setup lang="ts">
+import ReferenceList from '@/components/ReferenceList.vue';
+import ReferenceMark from '@/components/ReferenceMark.vue';
+
+import type { Reference } from '@/components/ReferenceList.vue';
+
+const references: Reference[] = [
+  {
+    desc: 'Boothby, E. J., Cooney, G., Sandstrom, G. M., & Clark , M. S. (2018, May 15). Psychological science. SAGE Journals.',
+    link: 'http://www.psychologicalscience.org/ps',
+  },
+  {
+    desc: 'Dunn, J. (2026, February 27). The big benefits of small talk. The New York Times.',
+    link: 'https://www.nytimes.com/2026/02/27/well/benefits-small-talk.html',
+  },
+  {
+    desc: 'Stahl, G., & McDonald, S. (2024). ‘I’d rather not bring any attention to myself’: Shyness and belonging(s) during the first-year university experience. Research in Post-Compulsory Education, 29(1), 45–63.',
+    link: 'https://doi.org/10.1080/13596748.2023.2285629',
+  },
+]
+
 </script>
 
 <template>
@@ -11,9 +31,9 @@
         A Guide for First-year Students
       </h2>
     </center>
-    <h3 class="subtitle nowrap big-first-letter">
+    <h2 class="subtitle nowrap big-first-letter">
       Congratulations on starting university!
-    </h3>
+    </h2>
     <p>
       Starting university is an exciting experience and offers numerous opportunities to socialize, but being in a new environment can easily feel isolating and overwhelming. While universities provide numerous opportunities to socialize, knowing where to meet people is drastically different from knowing how to approach them. Do you find it hard to start a conversation because of language barriers, cultural differences, or overthinking? 
     </p>
@@ -22,9 +42,9 @@
       Making friends is not just about finding the opportunities for socialization, but knowing how to turn them into connections. Follow this guide to learn how to approach others from the first step.
     </p>
 
-    <h3 class="subtitle nowrap">
+    <h2 class="subtitle nowrap">
       First of all, why is making friends so difficult?
-    </h3>
+    </h2>
     <p>
       For many first-year students, the biggest challenge to building connections is <i>not lack of interest, but uncertainty regarding how to initiate conversations.</i>
     </p>
@@ -34,11 +54,13 @@
     <ul>
       <li>
         <b>Low self-confidence:</b>
-        Students who doubt their own social skills often assume others would be uninterested in forming a connection (Boothby et al., 2018).
+        Students who doubt their own social skills often assume others would be uninterested in forming a connection.
+        <ReferenceMark :i="1"/>
       </li>
       <li>
         <b>Shyness/social anxiety:</b>
-        Meeting new people can feel intimidating, even when students genuinely want to build new friendships. (Stahl & McDonald, 2024).
+        Meeting new people can feel intimidating, even when students genuinely want to build new friendships.
+        <ReferenceMark :i="3"/>
       </li>
       <li>
         <b>Fear of rejection:</b>
@@ -58,11 +80,12 @@
       If any of these experiences sound familiar, know that you are not alone. Understanding these barriers and recognizing how they make socializing difficult is the first step to overcoming them. While clubs and events provide opportunities to meet people, students may still struggle to take that first step. This guide aims to bridge that gap by providing a few clear step-by-step strategies and plausible scenarios to help students confidently reach out to others, and gradually turn those interactions into meaningful friendships. 
     </p>
 
-    <h3 class="subtitle nowrap step-header">
+    <h2 class="subtitle nowrap step-header">
       Step 1: Approaching at the right moment
-    </h3>
+    </h2>
     <p>
-      Starting a conversation becomes easier when you choose the right moment and environment. Instead of randomly approaching a stranger, choose natural opportunities for interaction that makes having a conversation feel comfortable for both people (Dunn, 2026).
+      Starting a conversation becomes easier when you choose the right moment and environment. Instead of randomly approaching a stranger, choose natural opportunities for interaction that makes having a conversation feel comfortable for both people.
+      <ReferenceMark :i="2"/>
     </p>
     <div class="subtitle">
       <u>Before approaching someone, look to see if you notice these signs:</u>
@@ -77,7 +100,8 @@
       <div class="card">
         <div class="card-title">Open body language</div>
         <p>
-          Look for someone who appears relaxed and makes eye contact. A good way to tell if someone is receptive, is to smile and see if they smile back (Dunn, 2026).
+          Look for someone who appears relaxed and makes eye contact. A good way to tell if someone is receptive, is to smile and see if they smile back.
+          <ReferenceMark :i="2"/>
         </p>
       </div>
       <div class="card">
@@ -88,9 +112,9 @@
       </div>
     </div>
 
-    <h3 class="subtitle nowrap step-header">
+    <h2 class="subtitle nowrap step-header">
       Step 2: What to say and do
-    </h3>
+    </h2>
     <p>
       Once you have found the right moment, what should you do next? There is no strict template you have to follow to talk to others, and you cannot predict how others will respond. Having a few simple conversation starters prepared can help you approach others with more confidence.
     </p>
@@ -135,9 +159,9 @@
       </li>
     </ul>
 
-    <h3 class="subtitle nowrap step-header">
+    <h2 class="subtitle nowrap step-header">
       Step 3: Turn conversations into connections
-    </h3>
+    </h2>
     <p>
       It is rare for two people to build a strong friendship by having only one conversation. Rather than setting a goal to immediately make a friend, focus on enjoying the talk itself, and find opportunities to speak in the future.
     </p>
@@ -172,12 +196,16 @@
       You may not like everyone, and some people may not feel comfortable with you. Do not lock yourself in for one failure. If one does not work, you still have many other options left just around you.
     </p>
 
-    <h3 class="subtitle nowrap">
+    <h2 class="subtitle nowrap">
       Every friendship must start somewhere
-    </h3>
+    </h2>
     <p>
       Making friends at university is not always as simple as showing up to opportunities for socialization. Although these opportunities expose students to new people, the real challenge is knowing how and when to approach others and how to transform those connections. By understanding communication barriers, and becoming familiarized with starting genuine conversations, new students can gradually become more comfortable connecting with others. 
     </p>
+    <div class="references">
+      <h2>References</h2>
+      <ReferenceList :references="references"/>
+    </div>
   </main>
 </template>
 
@@ -233,7 +261,7 @@ ul {
 .card {
   width: calc(100% / 3 - 1rem);
   padding: 1em;
-  background: #50e050;
+  background: #eee;
   transition: transform 0.2s;
 }
 
@@ -251,6 +279,10 @@ ul {
 .card > p {
   font-size: 0.9em;
   text-indent: 2em;
+}
+
+.references {
+  margin-top: 2em;
 }
 
 @media (max-width: 800px) {
