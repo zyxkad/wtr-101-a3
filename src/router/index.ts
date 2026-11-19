@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import AboutView from '../views/AboutView.vue'
-import HomeView from '../views/HomeView.vue'
+import AboutView from '@/views/AboutView.vue'
+import HomeView from '@/views/HomeView.vue'
+import globals from '@/globals'
 
 const router = createRouter({
 	history: createWebHashHistory(),
@@ -19,6 +20,10 @@ const router = createRouter({
 	scrollBehavior(to, from, savedPos) {
 		if (savedPos) {
 			return savedPos
+		}
+		if (globals.skipAutoScroll) {
+			globals.skipAutoScroll = false
+			return false
 		}
 		if (to.hash) {
 			return {

@@ -1,14 +1,12 @@
 <script setup lang="ts">
-const {
-	title = 'Note'
-} = defineProps<{
+defineProps<{
 	title?: string
 }>()
 </script>
 
 <template>
 	<fieldset>
-		<legend>{{title}}</legend>
+		<legend>{{ title || 'Note' }}</legend>
 		<slot/>
 	</fieldset>
 </template>
