@@ -13,4 +13,7 @@ defineProps<{
 </template>
 
 <style scoped>
+sup {
+	text-wrap: nowrap;
+}
 </style>

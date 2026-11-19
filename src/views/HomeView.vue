@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ReferenceList from '@/components/ReferenceList.vue';
 import ReferenceMark from '@/components/ReferenceMark.vue';
+import NoteBox from '@/components/NoteBox.vue';
 
 import type { Reference } from '@/components/ReferenceList.vue';
 
@@ -192,9 +193,11 @@ const references: Reference[] = [
 			</li>
 		</ul>
 		<br/>
-		<p>
-			You may not like everyone, and some people may not feel comfortable with you. Do not lock yourself in for one failure. If one does not work, you still have many other options left just around you.
-		</p>
+		<NoteBox>
+			<p>
+				You may not like everyone, and some people may not feel comfortable with you. Do not lock yourself in for one failure. If one does not work, you still have many other options left just around you.
+			</p>
+		</NoteBox>
 
 		<h2 class="subtitle nowrap">
 			Every friendship must start somewhere
@@ -234,16 +237,37 @@ ul {
 	font-size: 200%;
 }
 
+@keyframes step-header-anim {
+	from {
+		width: var(--animation-start-width);
+		opacity: 0;
+	}
+	to {
+		width: var(--animation-end-width);
+		opacity: 1;
+	}
+}
+
 .step-header {
+	--animation-start-width: 3em;
+	--animation-end-width: 23em;
 	line-height: 2.5;
+	width: var(--animation-start-width);
+	position: relative;
+	opacity: 0;
+	animation: 0.7s ease-out step-header-anim forwards;
+	timeline-trigger: --scroll-trigger view(y -10000vh 0) contain / cover;
+  animation-trigger: --scroll-trigger play-forwards reset;
 }
 
 .step-header::before {
 	content: " ";
 	display: block;
-	width: 23em;
-	height: 2.5em;
 	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
 	z-index: -100;
 	margin-left: -1em;
 	background: #8d8;

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { onMounted, onUnmounted, reactive, markRaw } from 'vue'
+import { onMounted, onUnmounted, reactive, ref, markRaw, provide } from 'vue'
 import HeartIcon from '@/components/icon/HeartIcon.vue'
 import ThumbIcon from '@/components/icon/ThumbIcon.vue'
 
@@ -15,10 +15,16 @@ interface HeartData {
 	component: Component
 }
 
+const animation = ref(true)
+provide('animation', animation)
+
 const hearts = reactive<HeartData[]>([])
 const HEART_LIFE = 800
 
 function onClick(event: PointerEvent) {
+	if (!animation.value) {
+		return
+	}
 	hearts.push({
 		x: event.x,
 		y: event.y,
@@ -34,8 +40,10 @@ var lastTime = 0
 
 function renderTick(time: DOMHighResTimeStamp) {
 	rendererHandler = window.requestAnimationFrame(renderTick)
-
 	const dt = time - lastTime
+	if (dt < 15) {
+		return
+	}
 	lastTime = time
 
 	while (hearts.length > 0) {
@@ -136,6 +144,7 @@ footer {
 	top: -1rem;
 	width: 2rem;
 	height: 2rem;
+	filter: drop-shadow(0 0 2px#0004);
 }
 
 @media (max-width: 800px) {
