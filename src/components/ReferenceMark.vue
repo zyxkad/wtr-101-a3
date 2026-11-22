@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import globals from '@/globals'
 
 defineProps<{
 	i: number
@@ -8,7 +9,7 @@ defineProps<{
 
 <template>
 	<sup>
-		<RouterLink :to="`#references-${i}`">[{{i}}]</RouterLink>
+		<RouterLink :to="`#references-${i}`" @click="globals.onHashScroll">[{{i}}]</RouterLink>
 	</sup>
 </template>
 

@@ -40,6 +40,9 @@ provide('animation', animation)
 		<div>
 			This site is hosted at <a href="https://wtr-101-a3.ckcha.ca">wtr-101-a3.ckcha.ca</a>.
 		</div>
+		<div>
+			Made with <a href="https://vuejs.org">Vue.js</a>.
+		</div>
 	</footer>
 
 	<ClickHearts/>

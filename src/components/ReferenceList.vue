@@ -20,7 +20,7 @@ const route = useRoute()
 			:id="`references-${i + 1}`"
 			:class="route.hash === `#references-${i + 1}` ? ['selected'] : []"
 		>
-			<span>{{desc}}</span>&nbsp;<a v-if="link" :href="link">{{link}}</a>
+			<span>{{desc}}</span> <a v-if="link" :href="link">{{link.replace('http://', '').replace('https://', '')}}</a>
 		</li>
 	</ol>
 </template>
@@ -36,6 +36,6 @@ const route = useRoute()
 }
 
 .reference-list > li > a {
-	line-break: anywhere;
+	line-break: loose;
 }
 </style>

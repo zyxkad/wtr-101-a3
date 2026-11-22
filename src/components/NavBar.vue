@@ -14,27 +14,18 @@ const props = defineProps<{
 	nonroot?: boolean
 }>()
 
-const emits = defineEmits(['beforeNavigate'])
-
 const route = useRoute()
 const router = useRouter()
-
-let scrolling = false
-
-function beforeNavigate() {
-	emits('beforeNavigate')
-	scrolling = true
-}
 
 if (!props.nonroot) {
 	let observer: IntersectionObserver | null = null
 
 	function onScrollEnd() {
-		scrolling = false
+		globals.scrolling = false
 	}
 
 	function onScrolledTo(elem: Element) {
-		if (scrolling) {
+		if (globals.scrolling) {
 			return
 		}
 		const hash = `#${elem.id}`
@@ -45,6 +36,7 @@ if (!props.nonroot) {
 	}
 
 	onMounted(() => {
+		globals.scrolling = false
 		document.addEventListener('scrollend', onScrollEnd)
 
 		const observing = new Set<Element>()
@@ -98,10 +90,10 @@ if (!props.nonroot) {
 <template>
 	<ul class="navbar">
 		<li v-for="item in items" :class="route.hash === `#${item.anchor}` ? ['active'] : []">
-			<RouterLink :to="`#${item.anchor}`" @click="beforeNavigate">
+			<RouterLink :to="`#${item.anchor}`" @click="globals.onHashScroll">
 				{{item.name}}
 			</RouterLink>
-			<NavBar v-if="item.items" :items="item.items" :nonroot="true" @beforeNavigate="beforeNavigate"/>
+			<NavBar v-if="item.items" :items="item.items" :nonroot="true"/>
 		</li>
 	</ul>
 </template>
