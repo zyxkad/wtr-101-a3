@@ -297,6 +297,14 @@ const references: Reference[] = [
 				<h2 id="main-step-3" class="subtitle nowrap step-header">
 					Step 3: Turn One Conversation Into Two
 				</h2>
+				<div class="image-box float-right-50p">
+					<img src="@/assets/group-working.avif"/>
+					<div class="image-desc">
+						from
+						<a href="https://unsplash.com/photos/three-men-laughing-while-looking-in-the-laptop-inside-room-XkKCui44iM0">unsplash.com</a>
+						by Priscilla Du Preez
+					</div>
+				</div>
 				<p>
 					Friendships rarely appear after one conversation, and research has shown it takes on average 50 hours for someone to go from being an acquaintance to being a casual friend (Hall, 2018).
 				</p>
