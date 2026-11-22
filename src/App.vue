@@ -39,6 +39,11 @@ provide('animation', animation)
 		</div>
 		<div>
 			This site is hosted at <a href="https://wtr-101-a3.ckcha.ca">wtr-101-a3.ckcha.ca</a>.
+			The source code is available on
+			<a href="https://github.com/zyxkad/wtr-101-a3">
+				<img src="@/assets/github.png" style="height: 1.1em; vertical-align: text-top;" /> Github
+			</a>
+			under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL-3.0-or-later LICENSE</a>.
 		</div>
 		<div>
 			Made with <a href="https://vuejs.org">Vue.js</a>.
