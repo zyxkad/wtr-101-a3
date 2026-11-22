@@ -68,6 +68,8 @@ if (!props.nonroot) {
 					toppestTop = box.top
 					toppest = entry
 				}
+			}
+			if (toppest) {
 				onScrolledTo(toppest)
 			}
 		}, {

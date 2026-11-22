@@ -88,6 +88,12 @@ const references: Reference[] = [
 				<h2 id="main-introduction" class="subtitle nowrap big-first-letter">
 					Congratulations on starting university!
 				</h2>
+				<div class="image-box float-right-50p">
+					<img src="@/assets/uofa-nc.jpg"/>
+					<div class="image-desc">
+						By <a href="//commons.wikimedia.org/wiki/User:Crisco_1492" title="User:Crisco 1492">Chris Woodrich</a> - <span class="int-own-work" lang="en">Own work</span>, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/wiki/Special:Redirect/page/200707102">Link</a>
+					</div>
+				</div>
 				<p>
 					Starting university is an exciting experience and offers numerous opportunities to socialize, but being in a new environment can easily feel isolating and overwhelming. While universities provide numerous opportunities to socialize, knowing where to meet people is drastically different from knowing how to approach them. Do you find it hard to start a conversation because of language barriers, cultural differences, or overthinking? 
 				</p>
@@ -305,16 +311,17 @@ const references: Reference[] = [
 }
 
 .navbar :deep(li) {
+	--color-active: var(--color-text);
 	color: #bfb;
 }
 
 .navbar :deep(li.active) {
-	color: #000;
+	color: var(--color-active);
 }
 
 .navbar :deep(li.active) > a {
 	text-decoration: none !important;
-	color: #000;
+	color: var(--color-active);
 }
 
 main {
@@ -334,9 +341,28 @@ ul {
 	padding-inline-start: 3em;
 }
 
+.image-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.image-box img {
+	width: 100%;
+}
+
+.image-desc {
+	margin-top: 0.4rem;
+	text-align: center;
+	font-size: 0.75rem;
+	font-weight: 200;
+	color: var(--color-text);
+}
+
 .subtitle {
 	margin-top: 2rem;
 	margin-bottom: 1em;
+	color: var(--color-heading);
 }
 
 .big-first-letter::first-letter {
@@ -373,7 +399,7 @@ ul {
 	inset: 0;
 	z-index: -100;
 	margin-left: -1em;
-	background: #8d8;
+	background: #23dd23b8;
 	transform: skewX(-30deg);
 }
 
@@ -388,7 +414,7 @@ ul {
 .card {
 	width: calc(100% / 3 - 1rem);
 	padding: 1em;
-	background: #eee;
+	background: var(--color-background-mute);
 	transition: transform 0.2s;
 }
 
@@ -416,6 +442,10 @@ ul {
 
 	.navbar {
 		display: none;
+	}
+
+	.subtitle {
+		font-size: 1rem;
 	}
 
 	.card-box {

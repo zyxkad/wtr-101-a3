@@ -35,7 +35,7 @@ header {
 	width: 100%;
 	height: 4rem;
 	padding: 0.5rem 1rem;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid var(--color-border);
 }
 
 .logo {
@@ -50,9 +50,15 @@ header > nav > * {
 footer {
 	height: 16rem;
 	padding: 2rem;
-	background: #e0ffe0;
+	background-color: #e0ffe0;
 }
 
 @media (max-width: 800px) {
+}
+
+@media (prefers-color-scheme: dark) {
+	footer {
+		background-color: #367136;
+	}
 }
 </style>

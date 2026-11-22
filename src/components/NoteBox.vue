@@ -18,7 +18,7 @@ fieldset {
 	padding-top: 0;
 	border: 2px solid var(--box-border-color);
 	border-radius: 1em;
-	background: #ffb;
+	background: #fff80060;
 }
 
 fieldset > legend {
