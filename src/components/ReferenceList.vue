@@ -20,8 +20,7 @@ const route = useRoute()
 			:id="`references-${i + 1}`"
 			:class="route.hash === `#references-${i + 1}` ? ['selected'] : []"
 		>
-			<span>{{desc}}</span>
-			<a v-if="link" :href="link">{{link}}</a>
+			<span>{{desc}}</span>&nbsp;<a v-if="link" :href="link">{{link}}</a>
 		</li>
 	</ol>
 </template>

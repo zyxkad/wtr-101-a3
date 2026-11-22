@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import ExpandBox from '@/components/ExpandBox.vue'
 import NavBar from '@/components/NavBar.vue'
+import NoteBox from '@/components/NoteBox.vue'
 import ReferenceList from '@/components/ReferenceList.vue'
 import ReferenceMark from '@/components/ReferenceMark.vue'
-import NoteBox from '@/components/NoteBox.vue'
 
 import type { NavBarItem } from '@/components/NavBar.vue'
 import type { Reference } from '@/components/ReferenceList.vue'
@@ -13,8 +14,8 @@ const navItems: NavBarItem[] = [
 		anchor: 'main-introduction',
 	},
 	{
-		name: 'Why make friend is difficult',
-		anchor: 'main-why-make-friend-is-difficult',
+		name: 'Why first hello is difficult',
+		anchor: 'main-why-first-hello-is-difficult',
 	},
 	{
 		name: 'Approaching at the right moment',
@@ -64,8 +65,16 @@ const references: Reference[] = [
 		link: 'https://www.nytimes.com/2026/02/27/well/benefits-small-talk.html',
 	},
 	{
+		desc: 'Pavlovic, Z., & Jeno, L. M. (2024). Facilitating academic and social integration among first-year university students: is peer mentoring necessary or an additive measure? Mentoring & Tutoring, 32(1), 29–48.',
+		link: 'https://doi.org/10.1080/13611267.2023.2290731',
+	},
+	{
 		desc: `Stahl, G., & McDonald, S. (2024). "I'd rather not bring any attention to myself": Shyness and belonging(s) during the first-year university experience. Research in Post-Compulsory Education, 29(1), 45–63.`,
 		link: 'https://doi.org/10.1080/13596748.2023.2285629',
+	},
+	{
+		desc: "Spencer-Oatey, H., Dauber, D., Jing, J., & Lifei, W. (2016, November 22). Chinese students' social integration into the university community: hearing the students' voices. EBSCO.",
+		link: 'https://doi.org/10.1007/s10734-016-0074-0',
 	},
 ]
 
@@ -75,7 +84,7 @@ const references: Reference[] = [
 	<div class="main-box">
 		<NavBar class="navbar" :items="navItems"/>
 		<main>
-			<div class="text-center">
+			<div class="text-center" style="color: var(--color-heading);">
 				<h1>
 					How to Initiate Conversation in a New Environment
 				</h1>
@@ -95,52 +104,59 @@ const references: Reference[] = [
 					</div>
 				</div>
 				<p>
-					Starting university is an exciting experience and offers numerous opportunities to socialize, but being in a new environment can easily feel isolating and overwhelming. While universities provide numerous opportunities to socialize, knowing where to meet people is drastically different from knowing how to approach them. Do you find it hard to start a conversation because of language barriers, cultural differences, or overthinking? 
+					Starting university can be an exciting experience and offers numerous opportunities to socialize, but being in a new environment can easily feel isolating and overwhelming. You might sit next to someone all semester but never speak to them, or consider joining a club, but feel awkward attending alone. Even in a busy lecture hall full of people, saying hello can be the hardest part! While the University of Alberta provides numerous opportunities to socialize, many still feel unsure how to join a conversation.
 				</p>
 				<br/>
-				<p>
-					Making friends is not just about finding the opportunities for socialization, but knowing how to turn them into connections. Follow this guide to learn how to approach others from the first step.
-				</p>
+				<NoteBox>
+					<p>
+						Knowing <b>where to meet people</b> is drastically different from knowing <b>how to approach</b> them and <b>what to say</b>.
+					</p>
+				</NoteBox>
+				<br/>
+				<div>
+					 This guide aims to bridge that gap with a three-step strategy to help students confidently approach others, form connections, and gradually build friendships.
+				</div>
 			</section>
 
 			<section>
-				<h2 id="main-why-make-friend-is-difficult" class="subtitle nowrap">
-					First of all, why is making friends so difficult?
+				<h2 id="main-why-first-hello-is-difficult" class="subtitle nowrap">
+					What makes that first hello so difficult?
 				</h2>
 				<p>
-					For many first-year students, the biggest challenge to building connections is <i>not lack of interest, but uncertainty regarding how to initiate conversations.</i>
+					If any of these experiences sound familiar, know that you are not alone. Understanding these barriers and recognizing how they make socializing difficult is the first step to overcoming them.
+					<ReferenceMark :i="4"/>
 				</p>
-				<div class="subtitle nowrap">
-					<u>Common barriers include:</u>
-				</div>
-				<ul>
-					<li>
-						<b>Low self-confidence:</b>
-						Students who doubt their own social skills often assume others would be uninterested in forming a connection.
-						<ReferenceMark :i="1"/>
-					</li>
-					<li>
-						<b>Shyness/social anxiety:</b>
-						Meeting new people can feel intimidating, even when students genuinely want to build new friendships.
-						<ReferenceMark :i="3"/>
-					</li>
-					<li>
-						<b>Fear of rejection:</b>
-						Students may worry about being judged or disliked, and feel discouraged when approaching someone new.
-					</li>
-					<li>
-						<b>Overthinking and fear of awkwardness:</b>
-						Students may feel self-conscious and frequently worry about how to approach others and what to say. They may also avoid conversing with others to reduce awkwardness.
-					</li>
-					<li>
-						<b>Language and cultural differences:</b>
-						University is like a small community which includes people from various cultures and backgrounds. Students with different languages may find it difficult to communicate or scared they may offend others culturally.
-					</li>
-				</ul>
 				<br/>
-				<p>
-					If any of these experiences sound familiar, know that you are not alone. Understanding these barriers and recognizing how they make socializing difficult is the first step to overcoming them. While clubs and events provide opportunities to meet people, students may still struggle to take that first step. This guide aims to bridge that gap by providing a few clear step-by-step strategies and plausible scenarios to help students confidently reach out to others, and gradually turn those interactions into meaningful friendships. 
-				</p>
+				<div class="first-hello-difficulty-table">
+					<div>
+						<b>Low self-confidence:</b>
+						You assume you have nothing to say that others would find interesting, so you avoid introducing yourself.
+					</div>
+					<div>
+						<b>Shyness/social anxiety:</b>
+						You want to talk to others but feel tense in the moment.
+					</div>
+					<div>
+						<b>Fear of rejection:</b>
+						You expect others to dislike you, so you give up on the interaction too soon, feeling dissuaded.
+					</div>
+					<div>
+						<b>Overthinking and fear of awkwardness:</b>
+						You rehearse the interaction multiple times in your head until the moment has already passed.
+					</div>
+					<div>
+						<b>Language and cultural differences:</b>
+						You worry about offending someone and have a hard time understanding slang, so you remain quiet.
+					</div>
+					<div>
+						<b>Existing friend groups:</b>
+						You see all your classmates already talking in groups and assume there is no more space for you.
+					</div>
+				</div>
+				<br/>
+				<NoteBox title="">
+					While clubs and events provide opportunities to meet people, students may still struggle to take that first step.
+				</NoteBox>
 			</section>
 
 			<section>
@@ -148,13 +164,17 @@ const references: Reference[] = [
 					Step 1: Approaching at the right moment
 				</h2>
 				<p>
-					Starting a conversation becomes easier when you choose the right moment and environment. Instead of randomly approaching a stranger, choose natural opportunities for interaction that makes having a conversation feel comfortable for both people.
+					Choose a setting where you already share something, such as the same lab, club, or residence hall. Instead of randomly approaching a stranger, choose natural opportunities for interaction that makes having a conversation feel comfortable for both people.
 					<ReferenceMark :i="2"/>
+				</p>
+				<p>
+					Research suggests that first-year integration brings many opportunities to interact in academic settings, and even brief interactions with classmates have been associated with producing greater senses of belonging.
+					<ReferenceMark :i="3"/>
 				</p>
 				<div id="main-step-1-positive-signs" class="subtitle">
 					<u>Before approaching someone, look to see if you notice these signs:</u>
 				</div>
-				<div class="card-box">
+				<div class="card-row-box hover-enlarge">
 					<div class="card">
 						<div class="card-title">The right environment</div>
 						<p>
@@ -182,22 +202,56 @@ const references: Reference[] = [
 					Step 2: What to say and do
 				</h2>
 				<p>
-					Once you have found the right moment, what should you do next? There is no strict template you have to follow to talk to others, and you cannot predict how others will respond. Having a few simple conversation starters prepared can help you approach others with more confidence.
+					Once you have found the right moment, what should you do next? You do not need to have the perfect opening line. A friendly opening works best when you <b>notice something relevant, acknowledge, ask a question, and share a bit about yourself</b>. Having a few simple conversation starters prepared can help you approach others with more confidence.
 				</p>
-				<ul>
-					<li>
-						Starting a casual conversation before a lecture or a lab:
-						<ul><li>Say: "Good morning/afternoon" and share your feelings or recent experiences.</li></ul>
-					</li>
-					<li>
-						Finding people who look familiar (faces/ accent/ outfit/ etc.)
-						<ul><li>Say: "Hey I think I’ve seen you from somewhere before, where are you from?"</li></ul>
-					</li>
-					<li>
-						Noticing a shared interest (such as the other person wearing a band’s specific shirt):
-						<ul><li>Say: "I love your shirt! I am also a fan [of that artist]! What is your favourite album?"</li></ul>
-					</li>
-				</ul>
+				<div class="card-col-box">
+					<div class="card">
+						<div>
+							Starting a casual conversation before a lecture or a lab:
+						</div>
+						<ExpandBox>
+							<template #summary>
+								You can say:
+							</template>
+							<template #content>
+								"Good morning/afternoon" and share your feelings or recent experiences.
+								<br/>-- explain why
+							</template>
+						</ExpandBox>
+					</div>
+					<div class="card">
+						<div>
+							Finding people who look familiar (faces/ accent/ outfit/ etc.)
+						</div>
+						<ExpandBox>
+							<template #summary>
+								You can say:
+							</template>
+							<template #content>
+								"Hey I think I’ve seen you from somewhere before, where are you from?"
+								<br/>-- explain why
+							</template>
+						</ExpandBox>
+					</div>
+					<div class="card">
+						<div>
+							Noticing a shared interest (such as the other person wearing a band’s specific shirt):
+						</div>
+						<ExpandBox>
+							<template #summary>
+								You can say:
+							</template>
+							<template #content>
+								"I love your shirt! I am also a fan [of that artist]! What is your favourite album?"
+								<br/>-- explain why
+							</template>
+						</ExpandBox>
+					</div>
+				</div>
+				<br/>
+				<NoteBox title="">
+					Remember to keep it genuine! Asking for study notes right away can sound transactional.
+				</NoteBox>
 				<div id="main-step-2-keep-conversation" class="subtitle">
 					If someone responds, here are a few things to remember to keep the conversation going:
 				</div>
@@ -326,7 +380,7 @@ const references: Reference[] = [
 
 main {
 	flex-shrink: 7;
-	max-width: 60rem;
+	max-width: 56rem;
 }
 
 section {
@@ -345,6 +399,7 @@ ul {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin: 1rem;
 }
 
 .image-box img {
@@ -382,7 +437,7 @@ ul {
 
 .step-header {
 	--animation-start-width: 3em;
-	--animation-end-width: 23em;
+	--animation-end-width: min(23em, 100% + 1em);
 	line-height: 2.5;
 	width: var(--animation-start-width);
 	position: relative;
@@ -400,10 +455,17 @@ ul {
 	z-index: -100;
 	margin-left: -1em;
 	background: #23dd23b8;
-	transform: skewX(-30deg);
+	transform: skewX(-20deg);
 }
 
-.card-box {
+.card-col-box {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 1rem;
+}
+
+.card-row-box {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -412,13 +474,20 @@ ul {
 }
 
 .card {
-	width: calc(100% / 3 - 1rem);
 	padding: 1em;
 	background: var(--color-background-mute);
 	transition: transform 0.2s;
 }
 
-.card:hover {
+.card-col-box > .card {
+	width: 100%;
+}
+
+.card-row-box > .card {
+	width: calc(100% / 3 - 1rem);
+}
+
+.hover-enlarge > .card:hover {
 	transform: scale(1.2);
 	box-shadow: #888 0 0 8px;
 }
@@ -434,6 +503,21 @@ ul {
 	text-indent: 2em;
 }
 
+.first-hello-difficulty-table {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-auto-rows: 1fr;
+}
+
+.first-hello-difficulty-table > div {
+	padding: 1em;
+}
+
+.first-hello-difficulty-table, .first-hello-difficulty-table > div {
+	border: 0.5px solid var(--color-border);
+	border-collapse: collapse;
+}
+
 @media (max-width: 800px) {
 	.main-box {
 		display: block;
@@ -445,17 +529,21 @@ ul {
 	}
 
 	.subtitle {
-		font-size: 1rem;
+		font-size: 1.0rem;
 	}
 
-	.card-box {
+	.card-row-box {
 		display: grid;
 		grid-auto-rows: 1fr;
 		gap: 1rem;
 	}
 
-	.card {
+	.card-row-box > .card {
 		width: 100%;
+	}
+
+	.first-hello-difficulty-table {
+		grid-template-columns: 1fr;
 	}
 }
 

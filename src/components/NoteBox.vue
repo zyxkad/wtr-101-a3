@@ -6,7 +6,7 @@ defineProps<{
 
 <template>
 	<fieldset>
-		<legend>{{ title || 'Note' }}</legend>
+		<legend v-if="title !== ''">{{  title || 'Note' }}</legend>
 		<slot/>
 	</fieldset>
 </template>
@@ -15,10 +15,13 @@ defineProps<{
 fieldset {
 	--box-border-color: #fa2;
 	padding: 1em;
-	padding-top: 0;
 	border: 2px solid var(--box-border-color);
 	border-radius: 1em;
 	background: #fff80060;
+}
+
+fieldset:has(legend) {
+	padding-top: 0;
 }
 
 fieldset > legend {

@@ -10,7 +10,9 @@ provide('animation', animation)
 
 <template>
 	<header>
-		<img alt="Vue logo" class="logo" src="@/assets/logo.svg" />
+		<div class="logo">
+			Group 6 Icon
+		</div>
 
 		<nav>
 			<RouterLink to="/">Home</RouterLink>
@@ -21,7 +23,23 @@ provide('animation', animation)
 	<RouterView />
 
 	<footer>
-		Copyright&copy; 2026 Students of University of Alberta. All rights reserved.
+		<div>
+			Copyright&copy; 2026
+			Students of University of Alberta in WRS 101 - Section A02 & X02
+			<address style="display: inline;">
+				(<a href="mainto:aywang4@ualberta.ca">Alisha Wang</a>,
+				<a href="mailto:kzhang15@ualberta.ca">Kevin Zhang</a>,
+				<a href="mailto:charity4@ualberta.ca">Charity Lam</a>,
+				<a href="mailto:bubba@ualberta.ca">Bubba Reed</a>).
+			</address>
+			All rights reserved.
+		</div>
+		<div>
+			Instructed by Dr. Shahin Moghaddasi Sarabi.
+		</div>
+		<div>
+			This site is hosted at <a href="https://wtr-101-a3.ckcha.ca">wtr-101-a3.ckcha.ca</a>.
+		</div>
 	</footer>
 
 	<ClickHearts/>
@@ -39,8 +57,8 @@ header {
 }
 
 .logo {
-	width: 3rem;
 	height: 3rem;
+	line-height: 3rem;
 }
 
 header > nav > * {

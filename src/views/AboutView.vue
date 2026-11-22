@@ -6,9 +6,8 @@
 
 <style>
 .about {
+	padding: 2rem;
 	min-height: 100vh;
-	display: flex;
-	align-items: center;
 }
 
 @media (max-width: 1024px) {
